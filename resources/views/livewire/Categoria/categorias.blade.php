@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="card mb-4">
+<div class="">
     <div class="flash-message">
         @foreach (['danger', 'warning', 'message', 'info'] as $msg)
           @if(Session::has('alert-' . $msg))
@@ -12,7 +12,7 @@
           @endif
         @endforeach
       </div>
-    <div class="card-header">
+    <div class="">
 
         <h5>Lista de Categorias</h5>
     </div>
@@ -26,22 +26,14 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombres</th>          
-                        <th>Imagen</th>
-                        <th>Acción</th>
+                        <th style="width:100px;">ID</th>
+                        <th style="width:300px;">Nombres</th>          
+                        <th style="width:100px;">Imagen</th>
+                        <th style="width:100px;">Acción</th>
 
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombres</th>          
-                        <th>Imagen</th>
-                        <th>Acción</th>
-
-                    </tr>
-                </tfoot>
+               
                 <tbody>
                     @foreach($categoria as $cat)
                     <tr>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="card mb-4">
+<div class="">
     <div class="flash-message">
         @foreach (['danger', 'warning', 'message', 'info'] as $msg)
           @if(Session::has('alert-' . $msg))
@@ -11,7 +11,7 @@
           @endif
         @endforeach
       </div>
-    <div class="card-header">
+    <div class="">
 
         <h5>Lista de Clientes</h5>
     </div>
@@ -25,28 +25,17 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombres</th>          
-                        <th>Cédula</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
-                        <th>Email</th>
-                        <th>Acción</th>
+                        <th style="width:100px;">ID</th>
+                        <th style="width:100px;">Nombres</th>          
+                        <th style="width:100px;">Cédula</th>
+                        <th style="width:100px;">Dirección</th>
+                        <th style="width:100px;">Teléfono</th>
+                        <th style="width:100px;">Email</th>
+                        <th style="width:100px;">Acción</th>
 
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombres</th>          
-                        <th>Cédula</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
-                        <th>Email</th>
-                        <th>Acción</th>
-
-                    </tr>
-                </tfoot>
+       
                 <tbody>
                     @foreach($cliente as $clientess)
                     <tr>

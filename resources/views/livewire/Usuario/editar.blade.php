@@ -41,6 +41,7 @@
             
                 <div class="col-md-6">
                     <label for="Perfil">Perfil</label>
+                    <p></p>
                     <select class="form-select" aria-label="Default select example" id="perfil" name="perfil" required>
 
                         <option value="Administrador" {{$user->perfil=='Administrador'?'selected':''}}>Administrador</option>
@@ -55,6 +56,7 @@
                 
                 <div class="col-md-6">
                     <label for="estado">Estado</label>
+                    <p></p>
                     <select class="form-select" aria-label="Default select example"  name="estado" required >
         
                         <option value="Activo" {{$user->estado=='Activo'?'selected':''}}>Activo</option>

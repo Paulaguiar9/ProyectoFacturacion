@@ -1,22 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="">
+    
+    <div class="">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <h5>Lista de Productos</h5>
+    </div>
+  
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th style="width:300px;">Nombre</th>     
+                        <th style="width:100px;">Categoria</th>        
+                        <th style="width:100px;">Precio</th>
+                        <th style="width:100px;">Stock</th>
+  
+                        <th style="width:100px;">Imagen</th>
+                       
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    @foreach($producto as $product)
+                    <tr>
+                        <td>{{$loop->iteration}} </td>
+                        <td>{{$product->nombre}}</td>
+                        @foreach($categorias as $cat)
+                        @if($product->categoria_id == $cat->id)
+                        <td>{{$cat->Nombre}}</td>
+                        @endif 
+                        @endforeach
+                        <td>{{$product->precioventa}}</td>
+                        <td>{{$product->stock}}</td>
+
+                        <td>
+                            <img src="{{ asset('storage/imagen/Productos/'.$product->imagen)}}" class="img-fluid" width="70px"height="70" >
+                        </td>
+                       
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>

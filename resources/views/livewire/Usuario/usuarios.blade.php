@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="card mb-4">
+<div class="">
     <div class="flash-message">
         @foreach (['danger', 'warning', 'message', 'info'] as $msg)
           @if(Session::has('alert-' . $msg))
@@ -10,7 +10,7 @@
           @endif
         @endforeach
       </div>
-    <div class="card-header">
+    <div class="">
 
         <h5>Lista de Usuarios</h5>
     </div>
@@ -19,31 +19,20 @@
             <button type="button" class="btn btn-success"> <i class="fa fa-user-plus"></i> Añadir</button>
         </a>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
+   
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombres</th>
-                        <th>Email</th>
-                        <th>Perfil</th>
-                        <th>Estado</th>
-                        <th>Acción</th>
+                        <th style="width:80px;">ID</th>
+                        <th style="width:200px;">Nombres</th>
+                        <th style="width:300px;">Email</th>
+                        <th style="width:100px;">Perfil</th>
+                        <th style="width:100px;">Estado</th>
+                        <th style="width:100px;">Acción</th>
 
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombres</th>
-                        <th>Email</th>
-                        <th>Perfil</th>
-                        <th>Estado</th>
-                        <th>Acción</th>
-
-                    </tr>
-                </tfoot>
+              
                 <tbody>
                     @foreach($usuarios as $user)
                     <tr>
@@ -70,8 +59,7 @@
                 </tbody>
             </table>
 
-        </div>
-    </div>
+    
 </div>
 @endsection
 

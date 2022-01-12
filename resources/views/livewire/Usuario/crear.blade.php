@@ -47,7 +47,8 @@
                 <!-- perfil -->
                 <div class="col-md-6">
                             <label for="perfil">Selecione perfil</label>
-                            <select class="form-select" aria-label="Default select example" id="perfil" name="perfil" required >
+                            <p></p>
+                            <select class="form-select" id="perfil" name="perfil" required >
                                 <option value="" > Seleccione una opción</option>
                                 <option value="Administrador">Administrador</option>
                                 <option value="Secretaria">Secretaria</option>
@@ -64,6 +65,7 @@
                 <!-- estado -->
                 <div class="col-md-6">
                             <label for="estado">Estado</label>
+                            <p></p>
                             <select class="form-select" aria-label="Default select example" id="estado" name="estado" required>
                                 <option value="" > Seleccione una opción</option>
                                 <option value="Activo">Activo  </option>

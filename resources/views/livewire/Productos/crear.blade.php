@@ -23,6 +23,7 @@
                 <!-- Categoria -->
                 <div class="col-md-6">
                     <label for="categoria">Selecione Categoria</label>
+                    <p></p>
                     <select class="form-select" aria-label="Default select example" id="categoria" name="categoria" required>
                         <option value=""> Seleccione una opción</option>
                         @foreach($categorias as $cat)
@@ -92,6 +93,7 @@
                     </p>
                 </div>
                 <div class="col-md-6">
+                    
                     <button class="btn btn-primary btn-block" type="submit">Agregar </button>
                 </div>
 

@@ -1,33 +1,23 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="zxx">
+<meta name="csrf-token" content="<?php echo csrf_token() ?>" />
 
 <head>
-    @livewireStyles
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="<?php echo csrf_token() ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Alexan </title>
 
-    <title>
-        Tienda
-    </title>
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-    <!-- Nucleo Icons -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/vendors/themefy_icon/themify-icons.css" />
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/vendors/font_awesome/css/all.min.css" />
+    <script src="https://demo.dashboardpack.com/analytic-html/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/vendors/material_icon/material-icons.css" />
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/css/metisMenu.css">
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/css/style.css" />
+    <link rel="stylesheet" href="https://demo.dashboardpack.com/analytic-html/css/colors/default.css" id="colorSkinCSS">
 
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css')}}">
-    <!-- Font Awesome Icons -->
-
-    <script src="./assets/js/jquery-3.5.1.js"></script>
-    <script src="./assets/js/42d5adcbca.js" crossorigin="anonymous"></script>
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- CSS Files -->
-    <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
     <script>
         $(document).ready(function() {
             $('#dataTable').DataTable({
@@ -44,8 +34,8 @@
                     , "paginate": {
                         "first": "Primero"
                         , "last": "Último"
-                        , "next": "Siguiente"
-                        , "previous": "Anterior"
+                        , "next": "->"
+                        , "previous": "<-"
                     }
                     , "aria": {
                         "sortAscending": ": Activar para ordenar la columna de manera ascendente"
@@ -265,124 +255,129 @@
 
     </script>
 </head>
+<body class="crm_body_bg">
 
-<body class="g-sidenav-show  bg-gray-200">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-        <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="#" target="_blank">
 
-                <span class="ms-1 font-weight-bold text-white">Alexa Cosmectic</span>
-            </a>
+
+    <!-- main content part here -->
+
+    <!-- sidebar  -->
+    <nav class="sidebar">
+        <div class="logo d-flex justify-content-between">
+            <a class="large_logo" href="{{route('home')}}"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>
+            
+            <div class="sidebar_close_icon d-lg-none">
+                <i class="ti-close"></i>
+            </div>
         </div>
-        <hr class="horizontal light mt-0 mb-2">
-        <nav class="sidebar-nav">
+        <ul id="sidebar_menu">
             @include('layouts.menu')
 
-        </nav>
+        </ul>
+    </nav>
+    <!--/ sidebar  -->
 
-    </aside>
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-        <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    </ol>
 
-                </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+    <section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+        <div class="container-fluid no-gutters">
+            <div class="row">
+                <div class="col-lg-12  ">
+                    <div class="header_iner d-flex justify-content-between align-items-center">
+                    
+                        <div class="sidebar_icon d-lg-none">
+                          <i class="ti-menu"></i>
+                        </div>                        
+                        <h4>&nbsp;&nbsp;&nbsp; <i class=" far fa-file-alt" > </i> Sistema Inventario y Facturación  Alexan Cosmetic   </h4>
 
+                        <div class="header_right d-flex justify-content-between align-items-center">
+                            <div class="header_notification_warp d-flex align-items-center">
+
+                            </div>
+                            <div class="profile_info">
+                                <ul class="navbar-nav ml-auto">
+                                    <!-- Authentication Links -->
+                                    @guest
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Inicio de Sesión') }}</a>
+                                    </li>
+
+                                    @else
+
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:#797A7A">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                {{ __('Cerrar Sesión') }} <i class=" fas fa-sign-in-alt"></i>
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                    @endguest
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Inicio de Sesión') }}</a>
-                        </li>
-
-                        @else
-
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:#797A7A">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Cerrar Sesión') }} <i class=" fas fa-sign-in-alt"></i>
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                            <div class="sidenav-toggler-inner">
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                            </div>
-                        </a>
-                    </li>
-
-
-
                 </div>
             </div>
-        </nav>
-
-        <!-- End Navbar -->
-        <div class="container-fluid py-4">
-            <div class="row">
-
-                @yield('content')
-
-            </div>
-
-
-
         </div>
-    </main>
+        </div>
+        <!--/ menu  -->
+        <div class="main_content_iner">
+            <div class="container-fluid p-0 ">
+                <div class="row justify-content-center">
+           
+                    <div class="col-lg-12">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                        <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
 
-    <!--   Core JS Files   -->
+                            @yield('content')
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer part -->
+        <div class="footer_part">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer_iner text-center">
+                            <p>Mikaela Silva <a href="#"> <i class="ti-heart"></i> </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- scripts  -->
+    
+
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-
-
-    <script src="./assets/js/core/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
-
-    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/chartjs.min.js"></script>
-
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="./assets/js/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/material-dashboard.min.js?v=3.0.0"></script>
-
+    <!-- popper js -->
+    <script src="https://demo.dashboardpack.com/analytic-html/js/popper.min.js"></script>
+    <!-- bootstarp js -->
+    <script src="https://demo.dashboardpack.com/analytic-html/js/bootstrap.min.js"></script>
+    <script src="https://demo.dashboardpack.com/analytic-html/js/metisMenu.js"></script>
+    <script src="https://demo.dashboardpack.com/analytic-html/js/custom.js"></script>
     <script src="{{asset('ini.js')}}"></script>
     <script src="{{asset('bower_components/riot/riot.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/riot@2.6.1/riot+compiler.min.js"></script>
-    <script src="./bower_components/EasyAutocomplete//dist/jquery.easy-autocomplete.min.js"></script>
+    <script src="{{asset('bower_components/EasyAutocomplete//dist/jquery.easy-autocomplete.min.js')}}"></script>
 
     @yield('bottom')
 
@@ -394,7 +389,5 @@
     </script>
 
     @yield('js')
-    @livewireScripts
 </body>
-
 </html>

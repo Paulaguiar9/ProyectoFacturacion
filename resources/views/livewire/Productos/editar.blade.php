@@ -20,6 +20,7 @@
 
                 <div class="col-md-6">
                     <label for="categoria">Categoria</label>
+                    <p></p>
                     <select class="form-select" aria-label="Default select example" id="categoria" name="categoria" required>
                         <option value="" > Seleccione una opción</option>
                         @foreach($categorias as $cat)

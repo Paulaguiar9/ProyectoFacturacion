@@ -51,7 +51,7 @@
                         <td class="text-right">
                             <div class="d-flex">
                             <a class="btn btn-success" href="{{url('/ventas-pdf/'.$m->id)}}">
-                                <i class="fa fa-file-pdf-o"></i> 
+                                <i class="fa fa-file-pdf"></i> 
                             </a>
                             <form method="POST" action="{{url('/ventas-eliminar/'.$m->id)}}" class="formulario-eliminar">
                                 @csrf
@@ -80,7 +80,7 @@
 
         Swal.fire({
             title: 'Estas seguro?'
-            , text: "Se eliminará este cliente definitivamente!"
+            , text: "Se eliminará esta factura definitivamente!"
             , icon: 'warning'
             , showCancelButton: true
             , confirmButtonColor: '#3085d6'
