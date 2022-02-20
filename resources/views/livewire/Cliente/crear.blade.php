@@ -4,8 +4,7 @@
     <div class="card mb-4">
         <div class="card-header">
             <h5>Formulario para agregar Cliente </h5>
-
-
+            
             <form action="{{url('/guardar-cliente')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 

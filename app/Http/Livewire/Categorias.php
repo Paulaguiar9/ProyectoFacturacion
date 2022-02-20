@@ -76,7 +76,5 @@ class Categorias extends Component
        
        	return redirect()->route('categorias');
 
-    
-
     }
 }

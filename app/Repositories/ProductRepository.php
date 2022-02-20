@@ -15,4 +15,5 @@ class ProductRepository {
         return $this->model->where('nombre', 'like', "%$q%")
                            ->get();
     }
+    
 }

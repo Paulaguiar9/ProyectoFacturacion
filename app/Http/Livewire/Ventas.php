@@ -12,6 +12,9 @@ use Livewire\Component;
 use App\Models\Producto;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 
 class Ventas extends Component
@@ -92,27 +95,71 @@ class Ventas extends Component
                    ->findByName($req->input('q'));
     }
  
-    public function save(Request $req)
-    {
-        $data = (object)[
-            'subTotal' => $req->input('subTotal'),
-            'iva' => $req->input('iva'),
-            'total' => $req->input('total'),
-            'client_id' => $req->input('client_id'),
-            'detail' => [ ]
+public function save(Request $req)
+      {
+        $return = (object)[
+            'response' => false
         ];
+        try {
+            DB::beginTransaction();
+        $vent=new Invoice;
+        $vent->subTotal=$req->subTotal;
+        $vent->iva=$req->iva;
+        $vent->total=$req->total;
+        $vent->client_id=$req->client_id;
+        $vent->save();
+        
+        $detail = [];
+        foreach($req->detail as $d) {
+            $obj = new InvoiceItem;
+            
+            $obj->product_id = $d['id'];
+            $obj->cantidad = $d['quantity'];
+            $obj->PrecioUnitario = $d['precioventa'];
+            $obj->subTotal = $d['subTotal'];
 
-        foreach($req->input('detail') as $d){
-            $data->detail[ ] = (object)[
-                'product_id'        => $d['id'],
-                'cantidad'            => $d['quantity'],
-                'PrecioUnitario' => $d['precioventa'],
-                'subTotal'            => $d['subTotal']
-            ];
+            $detail[] = $obj;
+           
+            
         }
-     
+        $vent->detail()->saveMany($detail);
+        
+        $return->response = true;        
+        Session::flash('alert-info','Comprobante generado exitosamente');
+        DB::commit(); 
+      } catch (\Exception $e){
+        DB::rollBack();
+     }
+      return json_encode($return);
+      return redirect()->route('ventas');   
+     }
 
-        return $this->_invoiceRepo->save($data);
+public function reportday()
+    {
+        $rep=Invoice::whereDate('created_at',Carbon::today())->get();
+        $total=$rep->sum('total');
+        return view('livewire.Reportes.ReporteDia',compact('rep','total'));
+    }
+public function reportrango()
+    {
+        $sales=Invoice::whereDate('created_at',Carbon::today())->get();
+        $total=$sales->sum('total');
+        return view('livewire.Reportes.ReporteMes',compact('sales','total'));
+    }      
+public function reportResults(Request $request)
+    {
+        try{
+        $fi=$request->fecha_ini.'d/m/Y 00:00:00';
+        $ff=$request->fecha_fin.'d/m/Y 23:59:59';
+        $sales=Invoice::whereBetween(('created_at'),[$fi,$ff])->get();
+        $total=$sales->sum('total');
+        return view('livewire.Reportes.ReporteMes',compact('sales','total'));
+    }catch (\Exception $e) {
+      
+  
+    }
     }
 
 }
+
+

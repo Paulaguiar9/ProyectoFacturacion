@@ -5,7 +5,6 @@
         <div class="card-header">
             <h5>Formulario para agregar Categoría </h5>
 
-
             <form action="{{url('/guardar-categoria')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 

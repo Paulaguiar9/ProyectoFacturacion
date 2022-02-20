@@ -75,8 +75,9 @@ class Productos extends Component
     }
 
     public function eliminar($id)
+    
     {
-
+        try{
             $product=Producto::find($id);
             if($product->delete()){
                 if (   Storage::exists ('public/imagen/Productos/'.$product->imagen)) {
@@ -84,9 +85,13 @@ class Productos extends Component
                 }
             }
             Session::flash('alert-info','Producto eliminado exitosamente');      
+        }catch (\Exception $e) {
+            Session::flash('alert-danger','No se puede eliminar Producto, ya que contiene información relacionada con otras areas de sistema');
+      
+        }
             return redirect()->route('productos');
-
+    }
     
 
-    }
+   
 }

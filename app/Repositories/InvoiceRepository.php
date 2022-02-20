@@ -20,41 +20,6 @@ class InvoiceRepository {
     public function getAll() {
         return $this->model->orderBy('id', 'desc')->get();
     }
-    public function save($data) {
-        $return = (object)[
-            'response' => false
-        ];
-
-        try {
-            DB::beginTransaction();
-      
-            $this->model->subTotal = $data->subTotal;
-            $this->model->iva = $data->iva;
-            $this->model->total = $data->total;
-            $this->model->client_id = $data->client_id;
-
-            $this->model->save();
-            $detail = [];
-            foreach($data->detail as $d) {
-                $obj = new InvoiceItem;
-
-                $obj->product_id = $d->product_id;
-                $obj->cantidad = $d->cantidad;
-                $obj->PrecioUnitario = $d->PrecioUnitario;
-                $obj->subTotal = $d->subTotal;
-
-                $detail[] = $obj;
-            }
-
-            $this->model->detail()->saveMany($detail);
-            $return->response = true;
-
-            DB::commit();
-        } catch (\Exception $e){
-            DB::rollBack();
-        }
-
-        return json_encode($return);
-    }
+  
     
 }

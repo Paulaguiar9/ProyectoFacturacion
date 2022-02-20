@@ -66,3 +66,7 @@ Route::post('/ventas-save',[App\Http\Livewire\Ventas::class,'save'])->name('vent
 Route::get('/ventas-detail/{id}',[App\Http\Livewire\Ventas::class,'detalle'])->name('ventas-detail')->middleware('auth');
 Route::get('/ventas-pdf/{id}',[App\Http\Livewire\Ventas::class,'pdf'])->name('ventas-pdf')->middleware('auth');
 Route::delete('/ventas-eliminar/{id}',[App\Http\Livewire\Ventas::class,'delete'])->name('ventas-eliminar')->middleware('auth'); 
+Route::get('/report-dia',[App\Http\Livewire\Ventas::class,'reportday'])->name('report-dia')->middleware('auth');
+Route::get('/report-rango',[App\Http\Livewire\Ventas::class,'reportrango'])->name('report-rango')->middleware('auth');
+Route::post('/report-results',[App\Http\Livewire\Ventas::class,'reportResults'])->name('report-results')->middleware('auth');
+

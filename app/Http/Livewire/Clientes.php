@@ -51,11 +51,19 @@ class Clientes extends Component
        	return redirect()->route('clientes');
     }
     public function eliminar($id)
+    
     {
-        $client=Cliente::find($id);
-       $client->delete();
-        Session::flash('alert-info','Usuario eliminado exitosamente');
-       	return redirect()->route('clientes');
-
+        try{
+            $client=Cliente::find($id);
+            if($client->delete()){
+              
+            }
+            Session::flash('alert-info','Cliente eliminado exitosamente');
+        }catch (\Exception $e) {
+            Session::flash('alert-danger','No se puede eliminar Cliente, ya que contiene información relacionada con otras areas de sistema');
+      
+        }
+        return redirect()->route('clientes');
     }
+    
 }

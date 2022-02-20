@@ -118,15 +118,15 @@
                 }
 
         __addProductToDetail() {
-           
-            self.detail.push({
+                
+                self.detail.push({
                 id: self.product_id,
                 nombre: self.product.value,
                 quantity: parseFloat(self.quantity.value),
                 precioventa: parseFloat(self.precioventa),
-                subTotal: parseFloat(self.precioventa * self.quantity.value)
+                subTotal: parseFloat(self.precioventa * self.quantity.value)    
             });
-
+            
             self.product_id = 0;
             self.product.value = '';
             self.quantity.value = '';
@@ -134,7 +134,10 @@
             self.stock='';
 
             __calculate();
-            }
+         
+           }
+           
+          
 
         __save() {
             $.post(baseUrl('ventas-save'), {
@@ -150,7 +153,7 @@
                     alert('Algo esta mal ');
                 }
             }, 'json')
-        }
+          }
 
         function __calculate() {
             
@@ -166,6 +169,8 @@
             self.total = parseFloat(self.iva + self.subTotal);
 
              }
+
+       
 
         function __clientAutocomplete(){
             var client = $("#client"),

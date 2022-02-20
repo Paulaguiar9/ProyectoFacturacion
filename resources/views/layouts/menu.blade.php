@@ -43,6 +43,22 @@
         </a>
       </li>
    
+      <li class="nav-item">
+        <a class="nav-link text-black "   href="{{route('report-dia')}}" >
+          <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">RD</i>
+          </div>
+          <span class="nav-link-text ms-1">Reporte Dia</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black "   href="{{route('report-rango')}}" >
+          <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">RM</i>
+          </div>
+          <span class="nav-link-text ms-1">Reporte Mes</span>
+        </a>
+      </li>
       @if(Auth::user()->perfil=="Administrador")
        <li class="nav-item">
         <a class="nav-link text-black "  href="{{route('usuarios')}}" >

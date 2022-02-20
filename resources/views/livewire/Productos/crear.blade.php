@@ -5,7 +5,6 @@
         <div class="card-header">
             <h5>Formulario para agregar Productos </h5>
 
-
             <form action="{{url('/guardar-producto')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 

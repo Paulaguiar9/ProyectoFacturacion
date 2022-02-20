@@ -16,13 +16,11 @@
             <h2 class="page-header">
                 Comprobantes
             </h2>
-
             <div class="col-md-1">
                 <a class="nav-link" href="{{route('ventas-add')}}">
                     <button type="button" class="btn btn-success"> <i class="fa fa-clipboard"></i> Nuevo Comprobante </button>
                 </a>
             </div>
-
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -47,7 +45,7 @@
                         <td class="text-right">$ {{number_format($m->subTotal, 2)}}</td>
                         <td class="text-right">$ {{number_format($m->iva, 2)}}</td>
                         <td class="text-right">$ {{number_format($m->total, 2)}}</td>
-                        <td class="text-right">{{ $m->created_at  }}</td>
+                        <td class="text-right">{{ date_format($m->created_at,'d/m/Y')}}</td>
                         <td class="text-right">
                             <div class="d-flex">
                             <a class="btn btn-success" href="{{url('/ventas-pdf/'.$m->id)}}">
