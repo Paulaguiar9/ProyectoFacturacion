@@ -355,7 +355,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer_iner text-center">
-                            <p>Mikaela Silva <a href="#"> <i class="ti-heart"></i> </a></p>
+                            <p> <a href="#"> <i class="ti-heart"></i> </a></p>
                         </div>
                     </div>
                 </div>
