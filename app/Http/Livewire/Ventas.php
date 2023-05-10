@@ -71,11 +71,17 @@ class Ventas extends Component
       
     }
 
-    public function delete($id)
+    public function delete($id, Request $req)
     {
         $vent=Invoice::find($id);
-        //stock
-          
+        //stock 
+        foreach($vent->detail as $detail) {
+            $producto=Producto::find($detail->product_id);
+            $producto->stock += $detail->cantidad;
+            $producto->save();
+        }
+            
+        $vent->detail()->delete();
         $vent->delete();
          Session::flash('alert-info','Venta eliminada exitosamente');
         return redirect()->route('ventas');
@@ -113,6 +119,11 @@ public function save(Request $req)
         foreach($req->detail as $d) {
             $obj = new InvoiceItem;
             
+            // Validate stock
+            $product = Producto::find($d['id']);
+            if ($product->stock < $d['quantity']) {
+                throw new \Exception("La cantidad a vender es mayor a la existencia en stock");
+            }
             $obj->product_id = $d['id'];
             $obj->cantidad = $d['quantity'];
             $obj->PrecioUnitario = $d['precioventa'];
@@ -120,12 +131,17 @@ public function save(Request $req)
 
             $detail[] = $obj;
            
+            //descuento de produxcxto
+            $producto=Producto::find($d['id']);
+            $producto->stock=$producto->stock-$d['quantity'];
+            $producto->save();
             
         }
         $vent->detail()->saveMany($detail);
         
         $return->response = true;        
         Session::flash('alert-info','Comprobante generado exitosamente');
+       
         DB::commit(); 
       } catch (\Exception $e){
         DB::rollBack();

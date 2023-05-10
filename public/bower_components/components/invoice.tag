@@ -2,7 +2,7 @@
     <div class="well well-sm">
 
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
             <label> <b>Cédula del Cliente</b></label>
                 <input id="client" class="form-control typeahead" type="Number" placeholder="Ingrese cédula " />
             </div>
@@ -63,7 +63,7 @@
         <tr each={detail}>
             <td>
                 <button onclick={__removeProductFromDetail} class="btn btn-danger btn-xs btn-block">
-                <i class="fa fa-trash"></i>
+                <i class="ft-trash"></i>
                 </button>
             </td>
             <td>{nombre}</td>
@@ -125,6 +125,7 @@
                 quantity: parseFloat(self.quantity.value),
                 precioventa: parseFloat(self.precioventa),
                 subTotal: parseFloat(self.precioventa * self.quantity.value)    
+                
             });
             
             self.product_id = 0;

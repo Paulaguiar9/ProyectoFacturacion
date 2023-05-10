@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appnew')
 @section('content')
 
 <div class="container">
@@ -49,12 +49,12 @@
                         <td class="text-right">
                             <div class="d-flex">
                             <a class="btn btn-success" href="{{url('/ventas-pdf/'.$m->id)}}">
-                                <i class="fa fa-file-pdf"></i> 
+                                <i class="ft-file"></i> 
                             </a>
                             <form method="POST" action="{{url('/ventas-eliminar/'.$m->id)}}" class="formulario-eliminar">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-block" type="submit" > <i class="fa fa-trash"></i></button>
+                                <button class="btn btn-danger btn-block" type="submit" > <i class="ft-trash"></i></button>
                             </form>
                         </div>
                         </td>
